@@ -122,6 +122,7 @@ export default {
         id.value = null
         name.value = null
         surname.value = null
+        language.value = null
         age.value = null
         accept.value = false
 
