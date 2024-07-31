@@ -12,30 +12,40 @@
       <q-input
         filled
         v-model="id"
-        label="Your ID *"
-        hint="Student ID"
+        label="ใส่รหัสนักศึกษา *"
+        hint="รหัสนักศึกษา"
         lazy-rules
-        :rules="[ val => val && val.length > 0 || 'Please type your ID']"
+        :rules="[ val => val && val.length > 0 || 'กรุณาใส่รหัสนักศึกษา']"
       />
 
     <!-- NAME -->
       <q-input
         filled
         v-model="name"
-        label="Your name *"
-        hint="Name"
+        label="ใส่ชื่อ *"
+        hint="ชื่อจริง"
         lazy-rules
-        :rules="[ val => val && val.length > 0 || 'Please type your name']"
+        :rules="[ val => val && val.length > 0 || 'กรุณาใส่ชื่อ']"
       />
 
       <!-- Surname -->
       <q-input
         filled
         v-model="surname"
-        label="Your surname *"
-        hint="Surname"
+        label="ใส่นามสกุล *"
+        hint="นามสกุล"
         lazy-rules
-        :rules="[ val => val && val.length > 0 || 'Please type your surname']"
+        :rules="[ val => val && val.length > 0 || 'กรุณาใส่นามสกุล']"
+      />
+
+      <!-- LANGUAGE -->
+      <q-input
+        filled
+        v-model="language"
+        label="ภาษา *"
+        hint="ภาษา"
+        lazy-rules
+        :rules="[ val => val && val.length > 0 || 'กรุณาใส่ภาษา']"
       />
 
 
@@ -44,15 +54,15 @@
         filled
         type="number"
         v-model="age"
-        label="Your age *"
+        label="ใส่อายุ *"
         lazy-rules
         :rules="[
-          val => val !== null && val !== '' || 'Please type your age',
-          val => val > 0 && val < 100 || 'Please type a real age'
+          val => val !== null && val !== '' || 'กรุณาใส่อายุของคุณ',
+          val => val > 0 && val < 100 || 'กรุณาใส่อายุตามความจริง'
         ]"
       />
 
-      <q-toggle v-model="accept" label="I accept the license and terms" />
+      <q-toggle v-model="accept" label="ยอมรับเงื่อนไข" />
 
       <div>
         <q-btn label="Submit" type="submit" color="primary"/>
@@ -74,6 +84,7 @@ export default {
     const id = ref('6604101361')
     const name = ref('พีระพัฒน์')
     const surname = ref('มิคะนุช')
+    const language = ref(null)
     const age = ref(null)
     const accept = ref(false)
 
@@ -82,6 +93,7 @@ export default {
       id,
       name,
       surname,
+      language,
       age,
       accept,
 
@@ -110,6 +122,7 @@ export default {
         id.value = null
         name.value = null
         surname.value = null
+        language.value = null
         age.value = null
         accept.value = false
 
